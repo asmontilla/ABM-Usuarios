@@ -1,0 +1,17 @@
+body {
+  padding: 50px;
+  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+  /* background-image: url("../images/node.png"); */
+  text-align:center;
+}
+
+a {
+  color: #00B7FF;
+}
+
+.btn{
+  background-color: coral;
+  width: 100%;
+  height: auto;
+}
+

@@ -1,0 +1,11 @@
+para el filtro del tp solo tengo un input y un boton
+http : // localhost:3000/api /users?q=ada
+se puede usar q o search
+
+para filtrar puedo usar la funcion filter quefor
+ adentro tiene un 
+ toUpperCase =mayusculas
+$('#name').val(data.name);
+        $('#surname').val(data.surname);
+        $('#phone').val(data.phone),
+        $('#email').val(data.email)
