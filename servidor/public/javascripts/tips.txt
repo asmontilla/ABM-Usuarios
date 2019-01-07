@@ -1,0 +1,49 @@
+/filtrar búsqueda
+//------------------------------------
+$('#form_filter button').on('click', function () {
+   const filtro = $('#form_filter input').val();
+   $.ajax('/api/users?search=' + filtro)
+   .done( function (data) {
+       $('.row_body').remove();
+       for (var i = 0; i < data.length; i++){
+           $('.body_table').append(`
+           <tr class="row_body" id="${data[i].id}">
+               <td class="user_row">${data[i].nombre} </td>
+               <td class="user_row">${data[i].apellido}</td>
+               <td class="user_row">${data[i].telefono}</td>
+               <td class="user_row">${data[i].email}</td>
+               <td class="user_edit">
+               <a href="/users/edit?id=${data[i].id}"><i class="fas fa-pencil-alt"></i></a>
+               </td>
+               <td class="user_edit">
+               <i class="fas fa-trash-alt"onclick="eliminar(${data[i].id})"></i>
+               </td>
+           </tr>
+        `);
+       }
+   })
+})
+y este lado del servidor
+router.get('/api/users', function(req, res, next) {
+
+ let contenidoDeMiUsers = users;
+ contenidoDeMiUsers = JSON.parse(contenidoDeMiUsers);
+
+ const busqueda = req.query.search;
+
+ if(busqueda && busqueda.length > 0){
+
+   contenidoDeMiUsers = contenidoDeMiUsers.filter(function (u) {
+     return u.nombre.toLowerCase().indexOf(busqueda.toLowerCase())>=0||
+     u.apellido.toLowerCase().indexOf(busqueda.toLowerCase()) >= 0 ||
+     u.telefono.toLowerCase().indexOf(busqueda.toLowerCase()) >= 0 ||
+     u.email.toLowerCase().indexOf(busqueda.toLowerCase()) >= 0
+   });
+
+ }
+
+ res.json(contenidoDeMiUsers);
+
+ console.log(contenidoDeMiUsers);
+
+});

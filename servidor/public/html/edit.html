@@ -9,33 +9,33 @@
 </head>
 <body>
     <header>
-        <h1>Usuarios
-            <!-- <button id="new" class="btn">
-    <a href="/users/new">Nuevo</a>
-                </button>
-        </h1> -->
+        <h1>Editar Usuario</h1>
+  
     </header>
     <div class="infoUser">
         <form id="form">
                 <p>Nombre</p>
                 <input name="name" id="name" type="text"  >
+                <p id="redName" class="red"></p>
                 <p>Apellido</p>
                 <input name="surname" id="surname" type="text">
-            
-                <p>Telefono</p>
+                <p id="redSurname" class="red"></p>
+                <p>Teléfono</p>
                 <input name="phone" id="phone" type="number">
+                <p id="redPhone" class="red"></p>
                 <p>E-Mail</p>
                 <input name="mail" id="email" type="text" >
-                <button id="put" class="btn">
-<!-- 
-                    Este boton me debe llevar a la pagina inicial pero editado -->
-    <a href="/users">Editar</a>
-                </button>
-        </h1>
+                <p id="redMail" class="red"></p>
+                <div>
+                    <a href="/users"><button id="put" class="edit">Editar</button></a>
+                </div>
+        
      
     </div>
     
-        <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+    <script src="../javascripts/sweetalert2.all.min.js"></script>
+   <script src="https://cdn.jsdelivr.net/npm/promise-polyfill"></script>
     <script src="../javascripts/edit.js"></script>
 </body>
 </html>

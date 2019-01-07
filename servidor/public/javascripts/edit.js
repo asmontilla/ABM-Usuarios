@@ -1,4 +1,3 @@
-///hacer ncadael ajax y apendear el formulario y pedirle que en ca da value nw input 
 // leo todos los query params de la url
 const urlParams = new URLSearchParams(window.location.search);
 // leo el parametro que le estoy pasando
@@ -15,9 +14,6 @@ $.ajax('http://localhost:3000/api/users/' + usuarioAEditar) /// traer todos los 
         $('#email').val(data.email)
 
     })
-
-  
-//
 $('#put').on('click', function () {
     const nombre = $('#name').val();
     const surname = $('#surname').val();
@@ -26,26 +22,22 @@ $('#put').on('click', function () {
 
        /// aqui debo hacer la validacion de los input,para mostrar en el usuario antes de enviar al servidor que esto esta mal
   if(nombre.length==0 || nombre.length >= 30 || /^\s+$/.test(nombre) ){
-    alert("alert EL NOMBRE ")
+      $ ("#redName").html("El nombre debe poseer menos de 30 caracteres")
+    
     return;/// es para indicar que la funcion cierra aqui
   }else if (surname.length == 0 || surname.length >= 30 || /^\s+$/.test(surname) ) {
+    $ ("#redSurname").html("El apellido debe poseer menos de 30 caracteres")
     console.log(surname)
-    alert ('el apellido ingresado no es valido')
     return false;
 } else if(!(/^\d{10}$/.test(phone) )) {
     console.log(phone)
-
-    // cajita con letras rojas como el tp
-    alert ('el numero ingresado no es valido')
+    $ ("#redPhone").html("El telefono introducido es incorrecto")
     return false;
 } else if (! /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(email)){
     console.log(email)
-    alert ('el mail ingresado no es valido')
+    $ ("#redMail").html("El email introducido no es valido")
     return false;
 } else{
-  //aqui el modal
-    alert('paso las validaciones y puedo editar')
-}
     $.ajax('http://localhost:3000/api/users/' + usuarioAEditar, {
         method: "PUT",
         data: {
@@ -54,13 +46,21 @@ $('#put').on('click', function () {
             phone: $('#phone').val(),
             email:$("#email").val()
         },
-       
+
+        /// edita correctamente pero no se ve el swual ni me lleva  a la pagina index
         success: function () {
-            alert( "El usuario fue editado")
-        }
+            Swal("Genial", 'El usuario fue Editado',"success");
+            setTimeout (function(){
+              location.href = '../html/index.html';
+            },2000)
+           
+          }
+       
+      
 
     })
-    console.log("funciona")
+     }
+    console.log("funciona el editado")
 })
 
 ///
