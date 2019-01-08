@@ -4,7 +4,7 @@ $.ajax('http://localhost:3000/api/users').done(function (data) {
 
         for (let i = 0; i < data.length; i++) {
             console.log(data[i])
-            $('#tab').append(`<tr id="file${data[i].id}">
+            $('#tab').append(`<tr class="user" id="file${data[i].id}">
             <td id="nom">${data[i].name}</td>
             <td id="ape">${data[i].surname}</td>
             <td id="pho">${data[i].phone}</td>
@@ -20,9 +20,9 @@ $("#filter").on("click",function(){
     $("#file").remove();
     $.ajax("http://localhost:3000/api/users?search=" + valorFiltro)
     .done(function(data){
-        $("#file").remove();
+        $(".user").remove();
         for(let i = 0; i < data.length; i++){
-            $("#tab").append(`<tr id="file${data[i].id}">
+            $("#tab").append(`<tr  class= "user" id="file${data[i].id}">
             <td id="nom">${data[i].name}</td>
             <td id="ape">${data[i].surname}</td>
             <td id="pho">${data[i].phone}</td>
@@ -43,24 +43,25 @@ function eliminar (id) {
         method: 'DELETE',
         success: function(){         
 Swal({
-    title: 'Are you sure?',
-    text: "You won't be able to revert this!",
+    title: 'Esta seguro?',
+    text: "Esta acción no puede revertirse!",
     type: 'warning',
     showCancelButton: true,
     confirmButtonColor: '#3085d6',
     cancelButtonColor: '#d33',
-    confirmButtonText: 'Yes, delete it!'
+    confirmButtonText: 'si, deseo borrarlo!'
   }).then((result) => {
     if (result.value) {
+        $('#file' + id).remove();
       Swal(
-        'Deleted!',
-        'Your file has been deleted.',
+        'Hecho!',
+        'El usuario ha sido borrado.',
         'success'
       )
     }
   })
-            // Swal("Espera", 'Seguro que desea eliminar el usuario?',"success");
-            $('#file' + id).remove();
+
+            
         }
     })
 }

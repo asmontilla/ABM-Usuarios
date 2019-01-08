@@ -10,11 +10,10 @@ $('#new').on('click', function () {
       email:email
     }
 
-    /// aqui debo hacer la validacion de los input,para mostrar en el usuario antes de enviar al servidor que esto esta mal
   if(nombre.length==0 || nombre.length >= 30 || /^\s+$/.test(nombre) ){
-    /// aqui remover los display none de cada una de las letras rojas q van debajo de los input
+    
     $ ("#redName").html("El nombre debe poseer menos de 30 caracteres")
-    return;/// es para indicar que la funcion cierra aqui
+    return;
   }else if (surname.length == 0 || surname.length >= 30 || /^\s+$/.test(surname) ) {
     $ ("#redSurname").html("El apellido debe poseer menos de 30 caracteres")
     return false;
@@ -32,7 +31,8 @@ $('#new').on('click', function () {
     success: function () {
       Swal("Genial", 'El usuario fue creado',"success");
       setTimeout (function(){
-        location.href = '../html/index.html';
+        location.href="/users";
+      
       },2000)
      
     }

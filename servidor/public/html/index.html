@@ -1,47 +1,48 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.1/css/all.css" integrity="sha384-gfdkjb5BdAXd+lj+gudLWI+BXq4IuLW5IT+brZEZsLFm++aCMlF1V92rMkPaX4PP" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.1/css/all.css" integrity="sha384-gfdkjb5BdAXd+lj+gudLWI+BXq4IuLW5IT+brZEZsLFm++aCMlF1V92rMkPaX4PP"
+        crossorigin="anonymous">
     <link rel="stylesheet" href="../stylesheets/style.css">
     <title>Document</title>
 </head>
+
 <body>
-      
-        <header>
-            <h1>Usuarios</h1>    
-            </header>   
-        <div class="infoUser">
-                <form action="" id="filtro">
-                        <input id="input" type="text" >
-                        <button id="filter">Filtrar <i class="fas fa-search"></i></button>
-                    </form>
-            <table id="tab">
-                <tr>
-                    <th>Nombre</th>
-                    <th>Apellido</th>
-                    <th>Teléfono</th>
-                    <th>Email</th>
-                </tr>
-               
-            
-            </table>
-        </div>
-        <div class="infoUser">
-    
-    <td></td>
+
+    <header>
+        <h1> ABM Usuarios</h1>
+    </header>
+    <div class="infoUser">
+
+        <input id="input" name="search" type="text">
+        <button type="button" id="filter">Filtrar <i class="fas fa-search"></i></button>
+
+        <table id="tab">
+            <tr>
+                <th>Nombre</th>
+                <th>Apellido</th>
+                <th>Teléfono</th>
+                <th>Email</th>
+            </tr>
+
+
+        </table>
+    </div>
+
     <a href="/users/new">
-        <button id="new" class="nu">Nuevo Usuario</button>
+        <button id="new" class="nu hover"> Crear Nuevo Usuario</button>
     </a>
-        </div>
-       
-    
+    </div>
+
+
 
     <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
-    <script src="../javascripts/sweetalert2.all.min.js"></script>
-   <script src="https://cdn.jsdelivr.net/npm/promise-polyfill"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@7.33.1/dist/sweetalert2.all.min.js"></script>
     <script src="../javascripts/index.js"></script>
 </body>
+
 </html>
